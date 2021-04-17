@@ -1,0 +1,27 @@
+<h1>Home Page</h1>
+<body>
+  <div class="jumbotron">
+    <% if user_signed_in? %>
+      <h1>Welcome back <%= current_user.username %></h1>
+      <p class="lead">
+        You are signed in! You can make a booking by clicking the red link below!
+      </p>
+      <%= link_to 'Bookings', bookings_path, :class => 'btn btn-large btn-danger' %>
+    <% else %>
+      <h1>Welcome, new user!</h1>
+      <p class="lead">
+        You must sign in or sign up before you can access my ruby on rails designed website!
+        You can however view current bookings, but you won't be able to make your own without an account!
+      </p>
+      <div class="row-fluid">
+        <div class="span6">
+          <%= link_to 'Bookings', bookings_path, :class => 'btn btn-large btn-danger' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <iframe class="iframe_style" src="https://www.trivago.ie/" style="width: 100%;height:2000px"></iframe>
+  </div>
+
+</body>

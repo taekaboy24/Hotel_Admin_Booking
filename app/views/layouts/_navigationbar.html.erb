@@ -1,0 +1,30 @@
+<nav>
+    <div class="navigation">
+        <% if user_signed_in? %>
+        <div class="nav-links">
+          <%= link_to t('navbar.home'), root_path %>
+          <%= link_to t( 'navigation.Bookings'), bookings_path %>
+          <%= link_to 'ENG', '?lang=en' %>
+          <%= link_to 'ES', '?lang=es' %>
+        </div>
+        <% end %>
+
+        <% if user_signed_in? %>
+      <div class="user-login">
+            <%= t('navbar.welcome', name: current_user.username) %>
+            <%= link_to t('navigation.Sign out'), destroy_user_session_path, method: :delete %>
+        </div>
+        <% else %>
+      <div class="nav-links">
+          <%= link_to t('navbar.home'), root_path %>
+     </div>
+
+     <div class="user-login">
+       <%= link_to t('navigation.Sign in'), new_user_session_path %>
+       <%= link_to t('navigation.Sign up'), new_user_registration_path %>
+       <% end %>
+
+     </div>
+     </div>
+
+</nav>
